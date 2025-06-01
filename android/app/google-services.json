@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "249137204258",
+    "project_id": "tts06c1",
+    "storage_bucket": "tts06c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249137204258:android:4cb321c96c0ebb011ace7b",
+        "android_client_info": {
+          "package_name": "com.example.firebasetts06c1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc66t_DTZxPvYUroFCsVQ0U7lN8FN3TC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249137204258:android:eb4c37c4e1d3c8151ace7b",
+        "android_client_info": {
+          "package_name": "com.example.skinai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc66t_DTZxPvYUroFCsVQ0U7lN8FN3TC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249137204258:android:5ddaa087e46acc0c1ace7b",
+        "android_client_info": {
+          "package_name": "com.example.tts06c1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc66t_DTZxPvYUroFCsVQ0U7lN8FN3TC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:iconsax/iconsax.dart';
 import '../constants/colors.dart';
 import '../constants/size_config.dart';
@@ -32,46 +33,76 @@ class FaceScannerDialog extends StatelessWidget {
       ),
       actions: <Widget>[
         TextButton(
-          child: const Text(
-            'Gallery',
-            style: TextStyle(color: primaryColor),
-          ),
-          onPressed: () async {
-            final String userImage =
-            await imagePickerService.uploadingImageToFirebase(context, 1);
-
-            // Close the dialog first
-            Navigator.of(context, rootNavigator: true).pop();
-
-            // Ensure navigation happens after dialog is fully dismissed
-            Future.microtask(() {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => ChatWithImageScreen(userImage: userImage),
+            child: const Text(
+              'Gallery',
+              style: TextStyle(color: primaryColor),
+            ),
+            onPressed: () async {
+              // Show loading dialog
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => const Center(
+                  child: SpinKitFadingCircle(
+                    color: successColor,
+                    size: 50.0,
+                  ),
                 ),
               );
-            });
-          },
+
+              // Pick and upload image (0 = Camera, 1 = Gallery)
+              final String userImage = await imagePickerService.uploadingImageToFirebase(context, 1);
+
+
+              // Close FaceScanner dialog
+              Navigator.of(context, rootNavigator: true).pop();
+
+              // Navigate to chat screen
+              Future.microtask(() {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ChatWithImageScreen(userImage: userImage),
+                  ),
+                );
+              });
+            }
         ),
         TextButton(
-          child: const Text(
-            'Camera',
-            style: TextStyle(color: primaryColor),
-          ),
-          onPressed: () async {
-            final String userImage =
-            await imagePickerService.uploadingImageToFirebase(context, 0);
-
-            Navigator.of(context, rootNavigator: true).pop();
-
-            Future.microtask(() {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => ChatWithImageScreen(userImage: userImage),
+            child: const Text(
+              'Camera',
+              style: TextStyle(color: primaryColor),
+            ),
+            onPressed: () async {
+              // Show loading dialog
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => const Center(
+                  child: SpinKitFadingCircle(
+                    color: successColor,
+                    size: 50.0,
+                  ),
                 ),
               );
-            });
-          },
+
+              // Pick and upload image (0 = Camera, 1 = Gallery)
+              final String userImage = await imagePickerService.uploadingImageToFirebase(context, 0);
+
+              // Dismiss loading dialog
+              Navigator.of(context, rootNavigator: true).pop(); // Dismiss loader
+
+              // Close FaceScanner dialog
+              Navigator.of(context, rootNavigator: true).pop();
+
+              // Navigate to chat screen
+              Future.microtask(() {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ChatWithImageScreen(userImage: userImage),
+                  ),
+                );
+              });
+            }
         ),
       ],
     );

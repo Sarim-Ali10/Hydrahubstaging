@@ -8,7 +8,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:skinai/appservices/location_services.dart';
 import 'package:skinai/constants/colors.dart';
 import 'package:skinai/constants/size_config.dart';
-import 'package:skinai/reuseablewidgets/face_scanner_dialog.dart';
 import 'package:skinai/views/chat_screen.dart';
 import 'package:skinai/views/login_screen.dart';
 import 'package:skinai/views/product_description_screen.dart';
@@ -17,6 +16,7 @@ import 'package:skinai/views/product_screen.dart';
 import 'package:skinai/views/profile_screen.dart';
 import 'package:skinai/views/scan_screen.dart';
 import '../appservices/product_model.dart';
+import '../reuseablewidgets/face_scanner_dialog.dart';
 import '../reuseablewidgets/face_scanning_container.dart';
 import '../reuseablewidgets/product_container.dart';
 
@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         return ProductListScreen();
       case 2:
-        return const ScanScreen();
+        return const ScanPage();
       case 3:
         return const AllDoctorsScreen();
       case 4:

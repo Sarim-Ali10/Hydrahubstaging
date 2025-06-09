@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skinai/constants/colors.dart';
 import 'package:skinai/constants/size_config.dart';
 import 'package:skinai/views/doctors_screen.dart';
+import 'package:skinai/views/product_screen.dart';
 import '../appservices/skin_analyzer_service.dart';
 
 class ChatWithImageScreen extends StatefulWidget {
@@ -242,9 +243,7 @@ class _ChatWithImageScreenState extends State<ChatWithImageScreen> {
                         ),
                       ),
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Product suggestions coming soon...")),
-                        );
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProductListScreen(),));
                       },
                       child: Text(
                         "Suggest Products",
